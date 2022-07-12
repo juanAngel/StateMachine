@@ -1,6 +1,7 @@
 #include "xallocator.h"
 #include "Allocator.h"
 #include "Fault.h"
+#include <string.h>
 #include <iostream>
 
 using namespace std;
