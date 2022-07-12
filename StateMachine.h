@@ -64,7 +64,8 @@ public:
 		//    InternalEvent(ST_MY_STATE_FUNCTION, new MyEventData());
 		// This next internal event is not valid and causes the assert to fail:
 		//    InternalEvent(ST_MY_STATE_FUNCTION, new OtherEventData());
-		const Data* derivedData = dynamic_cast<const Data*>(data);
+		//const Data* derivedData = dynamic_cast<const Data*>(data);
+		const Data* derivedData = static_cast<const Data*>(data);
 		ASSERT_TRUE(derivedData != NULL);
 
 		// Call the state function
@@ -173,8 +174,7 @@ struct StateMapRowEx
 };
 
 /// @brief StateMachine implements a software-based state machine. 
-class StateMachine 
-{
+class StateMachine {
 public:
 	enum { EVENT_IGNORED = 0xFE, CANNOT_HAPPEN };
 
