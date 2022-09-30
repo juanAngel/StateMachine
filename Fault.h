@@ -10,7 +10,7 @@ extern "C" {
 // Used for compile-time checking for array sizes. On Windows VC++, you get 
 // an "error C2118: negative subscript" error.
 #ifndef C_ASSERT
-#define C_ASSERT(expr)  {char uname[(expr)?1:-1];uname[0]=0;}
+#define C_ASSERT(expr)  {char uname[(expr)?1:-1];uname[0]=0;((void)uname);}
 #endif
 
 #define ASSERT() \
